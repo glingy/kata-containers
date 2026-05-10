@@ -183,7 +183,7 @@ jobs:
       matrix:
         asset:
           - rootfs-image
-          - rootfs-image-confidential
+          - rootfs-image-coco-addon
           - rootfs-initrd
           - rootfs-initrd-confidential
     concurrency:
