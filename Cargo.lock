@@ -1830,7 +1830,7 @@ checksum = "f18f717c5c7c2e3483feb64cccebd077245ad6d19007c2db0fd341d38595353c"
 [[package]]
 name = "devicemapper"
 version = "0.34.7"
-source = "git+https://github.com/Apokleos/devicemapper-rs?branch=support-dm-without-udev#f4f4760f62b42043938bbe4b98456509940f3689"
+source = "git+https://github.com/Apokleos/devicemapper-rs?branch=dm-noudev-test#4ae7fdfd53d3785e0534a3ee3705777df52be73e"
 dependencies = [
  "bitflags 2.11.1",
  "cfg-if 1.0.4",
@@ -1847,7 +1847,7 @@ dependencies = [
 [[package]]
 name = "devicemapper-sys"
 version = "0.3.3"
-source = "git+https://github.com/Apokleos/devicemapper-rs?branch=support-dm-without-udev#f4f4760f62b42043938bbe4b98456509940f3689"
+source = "git+https://github.com/Apokleos/devicemapper-rs?branch=dm-noudev-test#4ae7fdfd53d3785e0534a3ee3705777df52be73e"
 dependencies = [
  "bindgen",
  "pkg-config",

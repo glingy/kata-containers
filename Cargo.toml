@@ -197,7 +197,7 @@ ttrpc = "0.8.4"
 url = "2.5.4"
 which = "4.3.0"
 gpt = "4.1.0"
-devicemapper = { git = "https://github.com/Apokleos/devicemapper-rs", branch = "support-dm-without-udev" }
+devicemapper = { git = "https://github.com/Apokleos/devicemapper-rs", branch = "dm-noudev-test" }
 
 # Per-package release profile overrides for kata-deploy. The kata-deploy
 # binary runs once at pod start and then idles waiting for SIGTERM, so we

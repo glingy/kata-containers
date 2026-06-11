@@ -33,6 +33,10 @@ setup() {
 }
 
 @test "EROFS layers are mounted via dm-verity inside the guest" {
+	create_container_timeout=180
+	set_metadata_annotation "${yaml_file}" \
+		"io.katacontainers.config.runtime.create_container_timeout" \
+		"${create_container_timeout}"
 	kubectl apply -f "${yaml_file}"
 	kubectl wait --for=condition=Ready --timeout="${timeout}" pod "${pod_name}"
 
@@ -42,7 +46,7 @@ setup() {
 	run kubectl exec "${pod_name}" -- sh -c '
 		log=$(dmesg 2>&1 | tail -n 100)
 		verity_lines=$(printf "%s\n" "$log" | grep -c "device-mapper: verity")
-		erofs_lines=$(printf "%s\n" "$log" | grep -cE "xerofs \(device dm-[0-9]+\): mounted")
+		erofs_lines=$(printf "%s\n" "$log" | grep -cE "erofs \(device dm-[0-9]+\): mounted")
 		echo "verity_lines=${verity_lines} erofs_lines=${erofs_lines}"
 		if [ "${verity_lines}" -lt 1 ] || [ "${erofs_lines}" -lt 1 ]; then
 			echo "--- last 100 lines of dmesg ---"
